@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Serein by Medha Mathur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1a1814;--soft:#4a4640;--muted:#8c8680;--cream:#f5f0e8;--cream2:#ece7df;--cream3:#e4ddd3;--gold:#b8975a;--gold2:#d4b87a;--dark:#0f0e0b;--dark2:#1a1814;--white:#fdfcfa;--serif:'Cormorant Garamond',serif;--sans:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(15,14,11,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(184,151,90,.1);display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);text-decoration:none}
+.nav-links{display:flex;gap:2.5rem;align-items:center}
+.nav-links a{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.42);text-decoration:none;transition:color .3s;font-weight:500}
+.nav-links a:hover,.nav-links a.active-link{color:var(--gold)}
+.nav-apply{background:var(--gold);color:var(--dark);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.75rem 1.8rem;text-decoration:none;font-family:var(--sans);transition:all .3s}
+.nav-apply:hover{background:var(--gold2)}
+.page-hero{background:var(--dark);padding:9rem 4rem 6rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;border:1px solid rgba(184,151,90,.05);pointer-events:none}
+.ph-eyebrow{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:inline-flex;align-items:center;gap:1rem;position:relative;z-index:1}
+.ph-eyebrow::before{content:'';width:2rem;height:1px;background:var(--gold)}
+.ph-h1{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.8rem);font-weight:300;color:var(--cream);line-height:1.05;margin-bottom:1.2rem;position:relative;z-index:1}
+.ph-h1 em{font-style:italic;color:var(--gold2)}
+.ph-sub{font-size:.88rem;color:rgba(245,240,232,.42);max-width:34rem;margin:0 auto 3rem;line-height:1.85;font-weight:300;position:relative;z-index:1}
+.ph-stats{display:flex;justify-content:center;gap:4rem;position:relative;z-index:1;padding-top:2.5rem;border-top:1px solid rgba(184,151,90,.1);max-width:600px;margin:0 auto}
+.ph-n{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--cream);line-height:1;display:block;margin-bottom:.2rem}
+.ph-l{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.3);line-height:1.5}
+.cs-grid-section{background:var(--cream);padding:5rem 4rem 2rem}
+.cs-grid-inner{max-width:960px;margin:0 auto}
+.cs-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:1rem;font-weight:500}
+.cs-label::before{content:'';width:2rem;height:1px;background:var(--gold)}
+.cs-intro{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--ink);margin-bottom:.4rem}
+.cs-hint{font-size:.78rem;color:var(--muted);margin-bottom:3rem;font-weight:300;font-style:italic}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--cream3)}
+.cs-card{background:var(--white);cursor:pointer;transition:all .35s;border:2px solid transparent}
+.cs-card:hover{background:var(--cream)}
+.cs-card.active{background:var(--dark);border-color:var(--gold)}
+.cs-card.cs-soon{cursor:default}
+.cs-card.cs-soon:hover{background:var(--white)}
+.cc{padding:2rem 1.8rem}
+.cc-num{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;font-weight:500}
+.cc-industry{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;font-weight:300;transition:color .3s}
+.cs-card.active .cc-industry{color:rgba(245,240,232,.3)}
+.cc-title{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:.4rem;transition:color .3s}
+.cs-card.active .cc-title{color:var(--cream)}
+.cc-title em{font-style:italic;color:var(--gold)}
+.cs-card.active .cc-title em{color:var(--gold2)}
+.cc-tag{font-size:.75rem;color:var(--muted);line-height:1.55;font-weight:300;margin-bottom:1.2rem;transition:color .3s}
+.cs-card.active .cc-tag{color:rgba(245,240,232,.35)}
+.cc-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.pill{font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;background:var(--cream2);color:var(--muted);padding:.28rem .7rem;font-weight:500;transition:all .3s}
+.cs-card.active .pill{background:rgba(184,151,90,.12);color:var(--gold)}
+.cc-cta{display:flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.cs-card.active .cc-cta{color:var(--gold2)}
+.cc-arrow{width:20px;height:20px;border:1px solid rgba(184,151,90,.4);display:flex;align-items:center;justify-content:center;transition:all .4s;flex-shrink:0}
+.cs-card.active .cc-arrow{background:var(--gold);border-color:var(--gold);transform:rotate(90deg)}
+.cc-arrow svg{width:9px;height:9px;fill:none;stroke:var(--gold);stroke-width:1.5;transition:stroke .3s}
+.cs-card.active .cc-arrow svg{stroke:var(--dark)}
+.soon-msg{font-size:.75rem;font-family:var(--serif);font-style:italic;color:var(--muted);margin-top:1rem}
+.cs-panel{display:none;background:var(--dark);animation:panelIn .4s ease}
+.cs-panel.open{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.cp{max-width:960px;margin:0 auto;padding:4rem}
+.panel-close{display:flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.3);cursor:pointer;background:none;border:none;font-family:var(--sans);margin-bottom:3rem;padding:0;transition:color .3s}
+.panel-close:hover{color:var(--gold)}
+.panel-close svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+.panel-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:3rem;align-items:start}
+.panel-h{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:var(--cream);line-height:1.08;margin-bottom:.4rem}
+.panel-h em{font-style:italic;color:var(--gold2)}
+.panel-sub{font-size:.84rem;color:rgba(245,240,232,.35);font-weight:300;font-style:italic;margin-bottom:1.5rem}
+.panel-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(184,151,90,.1)}
+.pm{background:rgba(245,240,232,.03);padding:1rem 1.2rem}
+.pm-l{font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;font-weight:500}
+.pm-v{font-size:.8rem;color:rgba(245,240,232,.5);font-weight:300;line-height:1.4}
+.panel-body{font-size:.86rem;line-height:1.92;color:rgba(245,240,232,.48);font-weight:300;margin-bottom:1rem}
+.panel-body strong{color:rgba(245,240,232,.85);font-weight:400}
+.sec-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500;display:flex;align-items:center;gap:1rem}
+.sec-label::before{content:'';width:1.5rem;height:1px;background:var(--gold)}
+.sec-h{font-family:var(--serif);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:1.5rem}
+.sec-h em{font-style:italic;color:var(--gold2)}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,151,90,.08);margin-bottom:3rem}
+.tg-card{background:var(--dark2);padding:1.6rem 1.4rem;transition:background .3s}
+.tg-card:hover{background:rgba(184,151,90,.04)}
+.tg-tag{font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:500}
+.tg-title{font-family:var(--serif);font-size:1rem;font-weight:300;color:var(--cream);margin-bottom:.4rem;line-height:1.3}
+.tg-body{font-size:.76rem;line-height:1.7;color:rgba(245,240,232,.35);font-weight:300}
+.results-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,151,90,.12);margin-bottom:2.5rem}
+.res{background:rgba(184,151,90,.04);padding:1.8rem 1.6rem;transition:background .3s}
+.res:hover{background:rgba(184,151,90,.07)}
+.res-n{font-family:var(--serif);font-size:2.6rem;font-weight:300;color:var(--cream);line-height:1;margin-bottom:.3rem}
+.res-label{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:500}
+.res-body{font-size:.74rem;color:rgba(245,240,232,.32);line-height:1.6;font-weight:300}
+.panel-quote{border-left:2px solid var(--gold);padding:1.2rem 1.6rem;font-family:var(--serif);font-size:1.1rem;font-style:italic;color:rgba(245,240,232,.52);line-height:1.6;background:rgba(184,151,90,.04);margin-bottom:2rem}
+.panel-quote-attr{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.2);margin-top:.4rem;font-style:normal;display:block}
+.panel-apply{display:inline-block;background:var(--gold);color:var(--dark);font-family:var(--sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.95rem 2.2rem;text-decoration:none;transition:all .3s}
+.panel-apply:hover{background:var(--gold2);transform:translateY(-1px)}
+.cta-band{background:var(--gold);padding:5rem 4rem;text-align:center}
+.cta-h{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:var(--dark);line-height:1.1;margin-bottom:.8rem}
+.cta-sub{font-size:.86rem;color:rgba(15,14,11,.55);max-width:26rem;margin:0 auto 2rem;line-height:1.78;font-weight:300}
+.btn-dark{display:inline-block;background:var(--dark);color:var(--gold);font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:1.15rem 3rem;text-decoration:none;transition:all .3s}
+.btn-dark:hover{background:#1a1814;transform:translateY(-1px)}
+.sub-bar{background:var(--dark2);border-top:1px solid rgba(184,151,90,.1);padding:3rem 4rem}
+.sub-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:3rem;flex-wrap:wrap}
+footer{background:#111009;padding:0}
+.footer-main{max-width:960px;margin:0 auto;padding:3.5rem 4rem 2.5rem;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4rem;border-bottom:1px solid rgba(184,151,90,.07)}
+.f-name{font-family:var(--serif);font-size:1.75rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--cream);margin-bottom:.5rem}
+.f-gtag{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;font-weight:500}
+.f-desc{font-size:.78rem;line-height:1.82;color:rgba(245,240,232,.28);font-weight:300;max-width:200px;margin-bottom:1.6rem}
+.f-socials{display:flex;gap:.65rem}
+.f-social{width:32px;height:32px;border:1px solid rgba(184,151,90,.18);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .3s}
+.f-social:hover{border-color:var(--gold)}
+.f-social svg{width:13px;height:13px;fill:rgba(245,240,232,.45)}
+.f-col-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:500}
+.f-col{display:flex;flex-direction:column;gap:.8rem}
+.f-col a{font-size:.8rem;color:rgba(245,240,232,.42);text-decoration:none;font-weight:300;transition:color .3s}
+.f-col a:hover{color:var(--gold)}
+.footer-bottom{max-width:960px;margin:0 auto;padding:1.4rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.f-copy{font-size:.62rem;color:rgba(245,240,232,.2);letter-spacing:.05em}
+.f-links{display:flex;gap:1.5rem}
+.f-links a{font-size:.62rem;color:rgba(245,240,232,.2);text-decoration:none;transition:color .3s}
+.f-links a:hover{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .85s ease,transform .85s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}
+@media(max-width:920px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .page-hero,.cta-band{padding:6rem 1.5rem 3.5rem}
+  .cs-grid-section{padding:3.5rem 1.5rem 1.5rem}
+  .cards-grid,.panel-meta,.three-grid,.results-row{grid-template-columns:1fr}
+  .panel-top{grid-template-columns:1fr}
+  .cp{padding:2.5rem 1.5rem}
+  .sub-bar{padding:2.5rem 1.5rem}.sub-inner{flex-direction:column;align-items:flex-start}
+  .footer-main{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}
+  .footer-bottom{padding:1.2rem 1.5rem}
+  .ph-stats{gap:2rem}
+}
+
+/* ── MOBILE READABILITY: boost text on dark backgrounds ── */
+@media(max-width:920px){
+  /* Hero */
+  .hero-sub{color:rgba(245,240,232,.75)!important}
+  .hero-proof .proof-l{color:rgba(245,240,232,.55)!important}
+  .hero-eyebrow{color:var(--gold)!important}
+
+  /* Story */
+  .story-body{color:rgba(245,240,232,.78)!important}
+  .story-cred{color:rgba(245,240,232,.62)!important}
+  .story-eyebrow{color:var(--gold)!important}
+
+  /* Offers */
+  .offers-sub{color:rgba(245,240,232,.68)!important}
+  .offer-tab:not(.active) .tab-name{color:rgba(245,240,232,.72)!important}
+  .tab-price{color:rgba(245,240,232,.55)!important}
+  .panel-tag{color:rgba(245,240,232,.65)!important}
+  .panel-desc{color:rgba(245,240,232,.78)!important}
+  .panel-li{color:rgba(245,240,232,.75)!important}
+  .panel-pull{color:rgba(245,240,232,.6)!important}
+
+  /* PDF section */
+  .pdf-sub{color:rgba(245,240,232,.75)!important}
+  .pdf-li{color:rgba(245,240,232,.72)!important}
+  .pdf-note{color:rgba(245,240,232,.48)!important}
+  .pdf-eyebrow{color:var(--gold)!important}
+  .pdf-mock-brand{color:rgba(245,240,232,.5)!important}
+
+  /* Testimonials */
+  .test-feat-attr{color:rgba(245,240,232,.52)!important}
+  .test-feat-q{color:rgba(245,240,232,.92)!important}
+
+  /* Results / CTA dark sections */
+  .final-sub{color:rgba(245,240,232,.62)!important}
+  .panel-price{color:rgba(245,240,232,.5)!important}
+
+  /* Video section */
+  .vf-text{color:rgba(245,240,232,.82)!important}
+
+  /* Footer & Subscribe */
+  .f-desc{color:rgba(245,240,232,.55)!important}
+  .f-col a{color:rgba(245,240,232,.68)!important}
+  .f-copy{color:rgba(245,240,232,.42)!important}
+  .f-links a{color:rgba(245,240,232,.42)!important}
+  .sub-label-s, .sub-s{color:rgba(245,240,232,.65)!important}
+
+  /* Nav back links */
+  .nav-back{color:rgba(245,240,232,.65)!important}
+
+  /* Case study panels */
+  .tg-body{color:rgba(245,240,232,.62)!important}
+  .res-body{color:rgba(245,240,232,.58)!important}
+  .pm-v{color:rgba(245,240,232,.75)!important}
+  .panel-body{color:rgba(245,240,232,.75)!important}
+  .gap-card-body{color:rgba(245,240,232,.62)!important}
+  .panel-quote{color:rgba(245,240,232,.75)!important}
+
+  /* Inline dark-bg text (footer etc) */
+  [style*="rgba(245,240,232,.28)"]{color:rgba(245,240,232,.6)!important}
+  [style*="rgba(245,240,232,.2)"]{color:rgba(245,240,232,.45)!important}
+  [style*="rgba(245,240,232,.22)"]{color:rgba(245,240,232,.48)!important}
+  [style*="rgba(245,240,232,.35)"]{color:rgba(245,240,232,.62)!important}
+  [style*="rgba(245,240,232,.38)"]{color:rgba(245,240,232,.65)!important}
+  [style*="rgba(245,240,232,.42)"]{color:rgba(245,240,232,.7)!important}
+  [style*="rgba(245,240,232,.45)"]{color:rgba(245,240,232,.75)!important}
+}
+
+/* ── OFFER TAB: active tab clear colour change ── */
+.offer-tab.active{
+  background:rgba(184,151,90,.14)!important;
+  border-top:2px solid var(--gold);
+  border-left:none;
+  border-right:none;
+}
+.offer-tab.active .tab-name{
+  color:var(--cream)!important;
+}
+.offer-tab.active .tab-num{
+  color:var(--gold)!important;
+}
+.offer-tab.active .tab-price{
+  color:var(--gold2)!important;
+}
+.offer-tab:not(.active){
+  background:var(--dark)!important;
+}
+.offer-tab:not(.active):hover{
+  background:rgba(184,151,90,.05)!important;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Serein</a>
+  <div class="nav-links">
+    <a href="index.html#framework">The Method</a>
+    <a href="index.html#offers">Work With Me</a>
+    <a href="index.html#about">About</a>
+    <a href="case-studies.html" class="active-link">Case Studies</a>
+  </div>
+  <a href="apply.html" class="nav-apply">Apply Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="ph-eyebrow">The work in practice</div>
+  <h1 class="ph-h1">The Alignment Gap<br><em>closed.</em></h1>
+  <p class="ph-sub">Each of these women had built something real. Each had a gap their strategy could not explain. Tap any case study to read what was found — and what changed when it closed.</p>
+  <div class="ph-stats">
+    <div><span class="ph-n">20</span><span class="ph-l">Case studies<br>and counting</span></div>
+    <div><span class="ph-n">3</span><span class="ph-l">Gaps found<br>in every one</span></div>
+    <div><span class="ph-n">100%</span><span class="ph-l">Closed within<br>the engagement</span></div>
+  </div>
+</div>
+
+<section class="cs-grid-section">
+  <div class="cs-grid-inner">
+    <div class="cs-label reveal">All case studies</div>
+    <div class="cs-intro reveal">Tap any card to read the full case study.</div>
+    <div class="cs-hint reveal">Each one is different. The method is the same.</div>
+    <div class="cards-grid" id="cardsGrid">
+
+      <div class="cs-card reveal" onclick="openCase('fc')" id="card-fc">
+        <div class="cc">
+          <div class="cc-num">01</div>
+          <div class="cc-industry">Creative direction · Branding</div>
+          <div class="cc-title">Flowcre8tive<br><em>The gap hiding an empire.</em></div>
+          <div class="cc-tag">World-class creative work. Completely invisible to the clients who could pay for it.</div>
+          <div class="cc-pills"><span class="pill">Visible Gap</span><span class="pill">Hidden Gap</span><span class="pill">Energetic Gap</span></div>
+          <div class="cc-cta">Read the case study<div class="cc-arrow"><svg viewBox="0 0 12 12"><polyline points="3 1 9 6 3 11"/></svg></div></div>
+        </div>
+      </div>
+
+      <div class="cs-card reveal d1" onclick="openCase('tn')" id="card-tn">
+        <div class="cc">
+          <div class="cc-num">02</div>
+          <div class="cc-industry">Nutrition · Travel mentorship</div>
+          <div class="cc-title">The Travel Nutritionist<br><em>Two identities. One precise position.</em></div>
+          <div class="cc-tag">A nutritionist and travel mentor, pulled in two directions. She needed a framework that made both one.</div>
+          <div class="cc-pills"><span class="pill">Hidden Gap</span><span class="pill">Repositioning</span><span class="pill">New category</span></div>
+          <div class="cc-cta">Read the case study<div class="cc-arrow"><svg viewBox="0 0 12 12"><polyline points="3 1 9 6 3 11"/></svg></div></div>
+        </div>
+      </div>
+
+      <div class="cs-card cs-soon reveal d2">
+        <div class="cc">
+          <div class="cc-num" style="opacity:.3">03</div>
+          <div class="cc-industry" style="opacity:.3">Next case study</div>
+          <div class="cc-title" style="color:var(--muted)">Your story here.</div>
+          <div class="soon-msg">This spot belongs to the next woman whose gap closes. Applications open.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PANEL 01: FLOWCRE8TIVE -->
+<div class="cs-panel" id="panel-fc">
+  <div class="cp">
+    <button class="panel-close" onclick="closeCase('fc')"><svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>Close case study</button>
+    <div class="panel-top">
+      <div>
+        <h2 class="panel-h">Flowcre8tive<br><em>The gap hiding an empire.</em></h2>
+        <p class="panel-sub">A creative direction agency that was already excellent — and completely invisible to the clients who could pay for it.</p>
+        <div class="panel-meta">
+          <div class="pm"><div class="pm-l">Client type</div><div class="pm-v">Creative direction &amp; brand studio</div></div>
+          <div class="pm"><div class="pm-l">The ceiling</div><div class="pm-v">Wrong clients, undercharging</div></div>
+          <div class="pm"><div class="pm-l">Gaps found</div><div class="pm-v">All three — Visible, Hidden, Energetic</div></div>
+          <div class="pm"><div class="pm-l">Engagement</div><div class="pm-v">Full brand repositioning</div></div>
+        </div>
+      </div>
+      <div>
+        <p class="panel-body">Flowcre8tive had built a genuine creative direction capability — the kind of visual thinking and brand execution that premium clients pay significant fees for. The quality of the work was not the problem.</p>
+        <p class="panel-body">The problem was that nothing about the brand communicated the depth of that capability. The positioning was vague where it needed to be precise. <strong>The right clients were not finding them. The clients who were arriving had expectations and budgets that did not match the work.</strong></p>
+      </div>
+    </div>
+    <div class="sec-label">The three gaps found</div>
+    <h3 class="sec-h">Three layers. <em>All three off.</em></h3>
+    <div class="three-grid">
+      <div class="tg-card"><div class="tg-tag">Gap I · Visible</div><div class="tg-title">Positioning that spoke to everyone — and reached no one</div><div class="tg-body">The messaging attracted a broad client base. Premium clients scrolled past because it did not signal the specificity and depth they were looking for. Generic positioning is expensive at any price point.</div></div>
+      <div class="tg-card"><div class="tg-tag">Gap II · Hidden</div><div class="tg-title">A brand built for approval rather than truth</div><div class="tg-body">The brand had been shaped by what the market might accept rather than what the founder actually built. The real creative direction capability was being softened and hedged. The right clients could not see it because it was not being shown.</div></div>
+      <div class="tg-card"><div class="tg-tag">Gap III · Energetic</div><div class="tg-title">The frequency of undervaluation — broadcast loud</div><div class="tg-body">Before a client read the rates page, the brand was already transmitting uncertainty about its own value. Premium clients feel this before they can name it. They pause. They look elsewhere. They do not know why.</div></div>
+    </div>
+    <div class="sec-label">What was delivered</div>
+    <h3 class="sec-h">The full build.</h3>
+    <div class="three-grid">
+      <div class="tg-card"><div class="tg-tag">Positioning</div><div class="tg-title">Complete brand repositioning</div><div class="tg-body">From broad creative agency to precise creative direction studio — specific client, specific outcome, specific price point to match.</div></div>
+      <div class="tg-card"><div class="tg-tag">Messaging</div><div class="tg-title">Core messaging framework</div><div class="tg-body">Every claim rebuilt from the inside out — from what Flowcre8tive actually delivers rather than what the market was expected to receive.</div></div>
+      <div class="tg-card"><div class="tg-tag">Visual</div><div class="tg-title">Brand visual direction</div><div class="tg-body">Visual presentation elevated to match the premium positioning. Every touchpoint now transmits the same frequency as the work itself.</div></div>
+      <div class="tg-card"><div class="tg-tag">Platforms</div><div class="tg-title">Platform bios &amp; website structure</div><div class="tg-body">Every platform rebuilt around the new positioning. The bio now calls in the right client before a conversation begins.</div></div>
+      <div class="tg-card"><div class="tg-tag">Content</div><div class="tg-title">Content strategy &amp; pillars</div><div class="tg-body">Content pillars built to demonstrate depth rather than volume. The right client arrives already knowing.</div></div>
+      <div class="tg-card"><div class="tg-tag">Strategy</div><div class="tg-title">90-day activation plan</div><div class="tg-body">A concrete plan for moving the repositioned brand into the market — which channels, which conversations to start first.</div></div>
+    </div>
+    <div class="sec-label">What changed</div>
+    <h3 class="sec-h">The right clients <em>arrived without chasing.</em></h3>
+    <div class="results-row">
+      <div class="res"><div class="res-n">3×</div><div class="res-label">Price point increase</div><div class="res-body">Repositioning supported a price that reflected the real value of the work — not what the market was previously accepting.</div></div>
+      <div class="res"><div class="res-n">60</div><div class="res-label">Days to first premium client</div><div class="res-body">Within 60 days of the repositioning going live, the first premium client arrived at the new rate — with no negotiation.</div></div>
+      <div class="res"><div class="res-n">0</div><div class="res-label">Wrong-fit clients since</div><div class="res-body">Precision in positioning is the most efficient filter available. When your brand transmits the right frequency, it stops attracting the wrong clients.</div></div>
+    </div>
+    <div class="panel-quote">"The work was always there. Medha made it visible to the people who were meant to find it."<span class="panel-quote-attr">Flowcre8tive · Brand repositioning engagement</span></div>
+    <a href="apply.html" class="panel-apply">Apply to work with Serein →</a>
+  </div>
+</div>
+
+<!-- PANEL 02: TRAVEL NUTRITIONIST -->
+<div class="cs-panel" id="panel-tn">
+  <div class="cp">
+    <button class="panel-close" onclick="closeCase('tn')"><svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>Close case study</button>
+    <div class="panel-top">
+      <div>
+        <h2 class="panel-h">The Travel Nutritionist<br><em>Two identities. One precise position.</em></h2>
+        <p class="panel-sub">A nutritionist and a travel mentor — pulled in two directions. She did not need to choose between them. She needed a framework that made both one.</p>
+        <div class="panel-meta">
+          <div class="pm"><div class="pm-l">Client type</div><div class="pm-v">Nutritionist &amp; travel mentor</div></div>
+          <div class="pm"><div class="pm-l">The ceiling</div><div class="pm-v">Split identity, diluted authority</div></div>
+          <div class="pm"><div class="pm-l">Gap found</div><div class="pm-v">Hidden Gap — two truths, no architecture</div></div>
+          <div class="pm"><div class="pm-l">Engagement</div><div class="pm-v">Repositioning &amp; full content build</div></div>
+        </div>
+      </div>
+      <div>
+        <p class="panel-body">She had built genuine expertise in two areas most people keep entirely separate — nutrition and travel mentorship. She was exceptional at both. She was also exhausted by both, because the market could not understand why one person would do both.</p>
+        <p class="panel-body">The result was a business that was constantly explaining itself. <strong>The hidden gap was not a lack of expertise. It was the absence of a positioning framework that made both truths into one coherent, premium offer.</strong></p>
+      </div>
+    </div>
+    <div class="sec-label">The insight that changed everything</div>
+    <h3 class="sec-h">The reframe. <em>Built from the inside out.</em></h3>
+    <div class="three-grid">
+      <div class="tg-card"><div class="tg-tag">The Reframe</div><div class="tg-title">The Travel Nutritionist — a new category</div><div class="tg-body">Not invented, but named for the first time. She helps top-level executives, CEOs, and digital nomads maintain their nutrition and physical performance while living a high-travel lifestyle. No one else was saying this. It was entirely hers.</div></div>
+      <div class="tg-card"><div class="tg-tag">The Client</div><div class="tg-title">The CEO who cannot stop travelling</div><div class="tg-body">A senior professional or founder whose schedule and travel demands make generic health advice useless. She stopped speaking to everyone who cared about health — and started speaking only to the person whose life made her indispensable.</div></div>
+      <div class="tg-card"><div class="tg-tag">The Authority</div><div class="tg-title">The combination IS the credential</div><div class="tg-body">What had felt like a confusing dual identity became the exact source of authority. No nutritionist understands 30 flights a year and business dining at the level she does. The combination was not a weakness to explain — it was a position to claim.</div></div>
+    </div>
+    <div class="sec-label">The full build</div>
+    <h3 class="sec-h">What was delivered.</h3>
+    <div class="three-grid">
+      <div class="tg-card"><div class="tg-tag">Positioning</div><div class="tg-title">New market category</div><div class="tg-body">Complete repositioning from dual-identity confusion to a single, precise, ownable market position — The Travel Nutritionist.</div></div>
+      <div class="tg-card"><div class="tg-tag">Content</div><div class="tg-title">30 days of social media content</div><div class="tg-body">A full month of Instagram and LinkedIn content written in her voice, built around the new positioning. All planned, written, and scheduled.</div></div>
+      <div class="tg-card"><div class="tg-tag">Link-in-bio</div><div class="tg-title">Complete link-in-bio strategy</div><div class="tg-body">Rebuilt as a conversion tool — a precise pathway for the ideal client to go from discovering her to booking with her. Every step intentional.</div></div>
+      <div class="tg-card"><div class="tg-tag">Website</div><div class="tg-title">Website structure &amp; copy framework</div><div class="tg-body">Complete website structure built around the new positioning — page hierarchy, section copy, and the exact language for every key touchpoint.</div></div>
+      <div class="tg-card"><div class="tg-tag">Visual</div><div class="tg-title">Brand colour &amp; visual management</div><div class="tg-body">A colour palette and visual direction built to communicate health, travel, and premium performance — clean, elevated, distinct from generic wellness.</div></div>
+      <div class="tg-card"><div class="tg-tag">Reposting</div><div class="tg-title">Complete reposting strategy</div><div class="tg-body">A strategy for reintroducing the new positioning to her existing audience — without confusion, without apology, with authority that makes the repositioning feel like an arrival.</div></div>
+    </div>
+    <div class="sec-label">What changed</div>
+    <h3 class="sec-h">One positioning. <em>The right clients found her.</em></h3>
+    <div class="results-row">
+      <div class="res"><div class="res-n">1</div><div class="res-label">New market category owned</div><div class="res-body">The Travel Nutritionist — a category she owns entirely. No competitor was saying this before.</div></div>
+      <div class="res"><div class="res-n">30</div><div class="res-label">Days of content built</div><div class="res-body">A full month of positioning-aligned content delivered and scheduled within the engagement. She never had to start from blank again.</div></div>
+      <div class="res"><div class="res-n">CEO</div><div class="res-label">Level client now arriving</div><div class="res-body">The repositioning attracted the client type the expertise had always been built for — senior executives and digital nomads who could not get this support elsewhere.</div></div>
+    </div>
+    <div class="panel-quote">"I had been explaining myself for years. After working with Medha, I stopped explaining and started claiming. The right clients understood immediately."<span class="panel-quote-attr">The Travel Nutritionist · Brand repositioning &amp; content build</span></div>
+    <a href="apply.html" class="panel-apply">Apply to work with Serein →</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2 class="cta-h reveal">Your gap is closeable.<br>Every single one of them.</h2>
+  <p class="cta-sub reveal">Different businesses, different gaps, different industries. What they have in common: the Alignment Gap was there, it was named, and it was closed. Yours is too.</p>
+  <a href="apply.html" class="btn-dark reveal">Apply to work with Serein →</a>
+</div>
+
+<div class="sub-bar">
+  <div class="sub-inner">
+    <div>
+      <div style="font-family:var(--serif);font-size:1.15rem;font-style:italic;font-weight:300;color:var(--cream);margin-bottom:.3rem">Stay in the Serein world.</div>
+      <div style="font-size:.78rem;color:rgba(245,240,232,.38);font-weight:300">Positioning insights, framework drops, and private invitations.</div>
+    </div>
+    <form class="sub-form" onsubmit="handleSubscribe(event)" style="display:flex;gap:.7rem;flex-shrink:0;flex-wrap:wrap">
+      <input type="email" placeholder="Your email address" required style="font-family:var(--sans);font-size:.82rem;background:rgba(245,240,232,.06);border:1px solid rgba(184,151,90,.22);color:var(--cream);padding:.85rem 1.3rem;outline:none;min-width:230px">
+      <button type="submit" style="background:var(--gold);color:var(--dark);font-family:var(--sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.85rem 2rem;border:none;cursor:pointer;transition:background .3s" onmouseover="this.style.background='var(--gold2)'" onmouseout="this.style.background='var(--gold)'">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="f-name">Serein</div>
+      <div class="f-gtag">The Alignment Gap™</div>
+      <p class="f-desc">Positioning and messaging for established women in business — built from the inside out.</p>
+      <div class="f-socials">
+        <a href="https://instagram.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://linkedin.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://youtube.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://tiktok.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Work With Me</div>
+      <div class="f-col">
+        <a href="apply.html">The Alignment Audit</a>
+        <a href="apply.html">Private Mentorship</a>
+        <a href="apply.html">The Serein Collective</a>
+        <a href="case-studies.html">Case Studies</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Quick Links</div>
+      <div class="f-col">
+        <a href="index.html">Main Site</a>
+        <a href="index.html#about">About Medha</a>
+        <a href="apply.html">Apply Now</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2026 Serein · Medha Mathur · Singapore · Dubai · New Delhi · All rights reserved</div>
+    <div class="f-links"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('in')})},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+let active=null;
+
+function openCase(id){
+  if(active===id){closeCase(id);return}
+  if(active){
+    document.getElementById('card-'+active)?.classList.remove('active');
+    document.getElementById('panel-'+active)?.classList.remove('open');
+  }
+  document.getElementById('card-'+id).classList.add('active');
+  const panel=document.getElementById('panel-'+id);
+  panel.classList.add('open');
+  active=id;
+  setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}),60);
+}
+
+function closeCase(id){
+  document.getElementById('card-'+id)?.classList.remove('active');
+  document.getElementById('panel-'+id)?.classList.remove('open');
+  if(active===id)active=null;
+}
+// To add a new case study:
+// 1. Add a card: copy any .cs-card div, change id to card-NEWID, onclick to openCase('NEWID')
+// 2. Add a panel: copy any .cs-panel div, change id to panel-NEWID, closeCase button to closeCase('NEWID')
+// 3. Fill in content. That's it.
+</script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Serein by Medha Mathur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a1814;--soft:#4a4640;--muted:#8c8680;
+  --cream:#f5f0e8;--cream2:#ece7df;--cream3:#e4ddd3;
+  --gold:#b8975a;--gold2:#d4b87a;
+  --dark:#0f0e0b;--dark2:#1a1814;--white:#fdfcfa;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{background:var(--ink);display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;border-bottom:1px solid rgba(184,151,90,.1)}
+.nav-logo{font-family:var(--serif);font-size:1.3rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);text-decoration:none}
+.nav-back{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.4);text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold)}
+.nav-back svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+
+/* HERO */
+.apply-hero{background:var(--dark);padding:5rem 4rem 4.5rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(184,151,90,.08)}
+.apply-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:480px;height:480px;border-radius:50%;border:1px solid rgba(184,151,90,.05);pointer-events:none}
+.apply-eyebrow{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:inline-flex;align-items:center;gap:1rem;position:relative;z-index:1}
+.apply-eyebrow::before{content:'';width:2rem;height:1px;background:var(--gold)}
+.apply-h{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:300;color:var(--cream);line-height:1.06;margin-bottom:1rem;position:relative;z-index:1}
+.apply-h em{font-style:italic;color:var(--gold2)}
+.apply-sub{font-size:.86rem;color:rgba(245,240,232,.42);max-width:28rem;margin:0 auto;line-height:1.82;font-weight:300;position:relative;z-index:1}
+
+/* MAIN LAYOUT */
+.apply-body{flex:1;max-width:700px;margin:0 auto;padding:4rem 2rem 5rem;width:100%}
+
+/* OFFER SELECTOR */
+.selector-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:1rem}
+.offer-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--cream3);margin-bottom:2.5rem;border:1px solid var(--cream3)}
+.offer-opt{background:var(--white);padding:1.4rem 1.2rem;cursor:pointer;transition:all .25s;border:2px solid transparent;margin:-1px}
+.offer-opt.selected{background:var(--ink);border-color:var(--gold)}
+.offer-opt-num{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;font-weight:500}
+.offer-opt-name{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--ink);line-height:1.2}
+.offer-opt.selected .offer-opt-name{color:var(--cream)}
+.offer-opt-price{font-size:.65rem;color:var(--muted);margin-top:.25rem;font-weight:300}
+.offer-opt.selected .offer-opt-price{color:rgba(245,240,232,.35)}
+
+/* DIVIDER */
+.form-divider{border:none;border-top:1px solid var(--cream3);margin:2rem 0}
+
+/* FORM */
+.form-intro{font-size:.82rem;line-height:1.82;color:var(--soft);font-weight:300;margin-bottom:2rem;padding:1.2rem 1.5rem;border-left:2px solid var(--gold);background:rgba(184,151,90,.04)}
+.field{margin-bottom:1.6rem}
+.field-label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:500;display:block;margin-bottom:.6rem}
+.field-label span{color:var(--gold);margin-left:.2rem}
+.field-hint{font-size:.72rem;color:var(--muted);font-weight:300;margin-bottom:.5rem;display:block}
+input[type=text],input[type=email],textarea,select{
+  width:100%;font-family:var(--sans);font-size:.86rem;font-weight:300;
+  background:var(--white);border:1px solid var(--cream3);color:var(--ink);
+  padding:.9rem 1.1rem;outline:none;transition:border-color .3s;
+  -webkit-appearance:none;border-radius:0;
+}
+input[type=text]:focus,input[type=email]:focus,textarea:focus,select:focus{border-color:var(--gold)}
+textarea{min-height:90px;resize:vertical;line-height:1.65}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9' fill='none' stroke='%23b8975a' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:16px;padding-right:2.5rem}
+.submit-btn{width:100%;background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:1.2rem;border:none;cursor:pointer;transition:background .3s;margin-top:.5rem}
+.submit-btn:hover{background:var(--gold);color:var(--dark)}
+.form-note{font-size:.68rem;color:var(--muted);text-align:center;margin-top:.8rem;line-height:1.65;font-weight:300}
+.form-note strong{color:var(--soft);font-weight:400}
+
+/* SUCCESS */
+.success-msg{display:none;text-align:center;padding:3rem;background:var(--dark);border:1px solid rgba(184,151,90,.2)}
+.success-icon{font-family:var(--serif);font-size:2.5rem;color:var(--gold);margin-bottom:.8rem;font-style:italic}
+.success-h{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--cream);margin-bottom:.6rem}
+.success-body{font-size:.84rem;color:rgba(245,240,232,.45);line-height:1.8;font-weight:300;max-width:26rem;margin:0 auto}
+
+/* REASSURANCE — full width 3 cols */
+.reassurance{background:var(--dark);padding:4rem;width:100%}
+.reassurance-inner{max-width:960px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(184,151,90,.1)}
+.re-card{padding:2.5rem 2.2rem;text-align:left;border-right:1px solid rgba(184,151,90,.1)}
+.re-card:last-child{border-right:none}
+.re-icon{font-family:var(--serif);font-size:1.8rem;font-style:italic;color:var(--gold);margin-bottom:.8rem;line-height:1}
+.re-title{font-size:.82rem;font-weight:500;color:var(--cream);margin-bottom:.5rem}
+.re-body{font-size:.76rem;color:rgba(245,240,232,.38);line-height:1.72;font-weight:300}
+
+/* SUBSCRIBE BAR */
+.sub-bar{background:var(--dark2);border-top:1px solid rgba(184,151,90,.1);padding:3rem 4rem}
+.sub-bar-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:3rem;flex-wrap:wrap}
+.sub-label-h{font-family:var(--serif);font-size:1.15rem;font-weight:300;color:var(--cream);margin-bottom:.3rem;font-style:italic}
+.sub-label-s{font-size:.78rem;color:rgba(245,240,232,.38);font-weight:300}
+.sub-form{display:flex;gap:.7rem;flex-shrink:0;flex-wrap:wrap}
+.sub-input{font-family:var(--sans);font-size:.82rem;font-weight:300;background:rgba(245,240,232,.06);border:1px solid rgba(184,151,90,.22);color:var(--cream);padding:.85rem 1.3rem;outline:none;min-width:240px;transition:border-color .3s}
+.sub-input:focus{border-color:var(--gold)}
+.sub-input::placeholder{color:rgba(245,240,232,.3)}
+.sub-btn{background:var(--gold);color:var(--dark);font-family:var(--sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.85rem 2rem;border:none;cursor:pointer;white-space:nowrap;transition:background .3s}
+.sub-btn:hover{background:var(--gold2)}
+
+/* FOOTER */
+footer{background:#141210;padding:0}
+.footer-main{max-width:960px;margin:0 auto;padding:3.5rem 4rem 2.5rem;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4rem;border-bottom:1px solid rgba(184,151,90,.07)}
+.f-brand-name{font-family:var(--serif);font-size:1.7rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:var(--cream);margin-bottom:.5rem}
+.f-brand-tag{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;font-weight:500}
+.f-brand-desc{font-size:.78rem;line-height:1.8;color:rgba(245,240,232,.3);font-weight:300;max-width:210px;margin-bottom:1.6rem}
+.f-socials{display:flex;gap:.7rem}
+.f-social{width:32px;height:32px;border:1px solid rgba(184,151,90,.18);display:flex;align-items:center;justify-content:center;transition:border-color .3s;text-decoration:none}
+.f-social:hover{border-color:var(--gold)}
+.f-social svg{width:13px;height:13px;fill:rgba(245,240,232,.45)}
+.f-col-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:500}
+.f-col{display:flex;flex-direction:column;gap:.8rem}
+.f-col a{font-size:.8rem;color:rgba(245,240,232,.42);text-decoration:none;font-weight:300;transition:color .3s}
+.f-col a:hover{color:var(--gold)}
+.footer-bottom{max-width:960px;margin:0 auto;padding:1.4rem 4rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.f-copy{font-size:.62rem;color:rgba(245,240,232,.2);letter-spacing:.05em}
+.f-links{display:flex;gap:1.5rem}
+.f-links a{font-size:.62rem;color:rgba(245,240,232,.2);text-decoration:none;transition:color .3s}
+.f-links a:hover{color:var(--gold)}
+
+@media(max-width:700px){
+  nav{padding:1.1rem 1.5rem}
+  .apply-hero{padding:4rem 1.5rem 3.5rem}
+  .apply-body{padding:3rem 1.5rem 4rem}
+  .offer-selector{grid-template-columns:1fr}
+  .reassurance-inner{grid-template-columns:1fr}
+  .re-card{border-right:none;border-bottom:1px solid rgba(184,151,90,.1)}
+  .re-card:last-child{border-bottom:none}
+  .sub-bar{padding:2.5rem 1.5rem}
+  .sub-bar-inner{flex-direction:column;align-items:flex-start}
+  .footer-main{grid-template-columns:1fr;padding:3rem 1.5rem 2rem;gap:2.5rem}
+  .footer-bottom{padding:1.2rem 1.5rem}
+}
+
+/* ── MOBILE READABILITY: boost text on dark backgrounds ── */
+@media(max-width:920px){
+  /* Hero */
+  .hero-sub{color:rgba(245,240,232,.75)!important}
+  .hero-proof .proof-l{color:rgba(245,240,232,.55)!important}
+  .hero-eyebrow{color:var(--gold)!important}
+
+  /* Story */
+  .story-body{color:rgba(245,240,232,.78)!important}
+  .story-cred{color:rgba(245,240,232,.62)!important}
+  .story-eyebrow{color:var(--gold)!important}
+
+  /* Offers */
+  .offers-sub{color:rgba(245,240,232,.68)!important}
+  .offer-tab:not(.active) .tab-name{color:rgba(245,240,232,.72)!important}
+  .tab-price{color:rgba(245,240,232,.55)!important}
+  .panel-tag{color:rgba(245,240,232,.65)!important}
+  .panel-desc{color:rgba(245,240,232,.78)!important}
+  .panel-li{color:rgba(245,240,232,.75)!important}
+  .panel-pull{color:rgba(245,240,232,.6)!important}
+
+  /* PDF section */
+  .pdf-sub{color:rgba(245,240,232,.75)!important}
+  .pdf-li{color:rgba(245,240,232,.72)!important}
+  .pdf-note{color:rgba(245,240,232,.48)!important}
+  .pdf-eyebrow{color:var(--gold)!important}
+  .pdf-mock-brand{color:rgba(245,240,232,.5)!important}
+
+  /* Testimonials */
+  .test-feat-attr{color:rgba(245,240,232,.52)!important}
+  .test-feat-q{color:rgba(245,240,232,.92)!important}
+
+  /* Results / CTA dark sections */
+  .final-sub{color:rgba(245,240,232,.62)!important}
+  .panel-price{color:rgba(245,240,232,.5)!important}
+
+  /* Video section */
+  .vf-text{color:rgba(245,240,232,.82)!important}
+
+  /* Footer & Subscribe */
+  .f-desc{color:rgba(245,240,232,.55)!important}
+  .f-col a{color:rgba(245,240,232,.68)!important}
+  .f-copy{color:rgba(245,240,232,.42)!important}
+  .f-links a{color:rgba(245,240,232,.42)!important}
+  .sub-label-s, .sub-s{color:rgba(245,240,232,.65)!important}
+
+  /* Nav back links */
+  .nav-back{color:rgba(245,240,232,.65)!important}
+
+  /* Case study panels */
+  .tg-body{color:rgba(245,240,232,.62)!important}
+  .res-body{color:rgba(245,240,232,.58)!important}
+  .pm-v{color:rgba(245,240,232,.75)!important}
+  .panel-body{color:rgba(245,240,232,.75)!important}
+  .gap-card-body{color:rgba(245,240,232,.62)!important}
+  .panel-quote{color:rgba(245,240,232,.75)!important}
+
+  /* Inline dark-bg text (footer etc) */
+  [style*="rgba(245,240,232,.28)"]{color:rgba(245,240,232,.6)!important}
+  [style*="rgba(245,240,232,.2)"]{color:rgba(245,240,232,.45)!important}
+  [style*="rgba(245,240,232,.22)"]{color:rgba(245,240,232,.48)!important}
+  [style*="rgba(245,240,232,.35)"]{color:rgba(245,240,232,.62)!important}
+  [style*="rgba(245,240,232,.38)"]{color:rgba(245,240,232,.65)!important}
+  [style*="rgba(245,240,232,.42)"]{color:rgba(245,240,232,.7)!important}
+  [style*="rgba(245,240,232,.45)"]{color:rgba(245,240,232,.75)!important}
+}
+
+/* ── OFFER TAB: active tab clear colour change ── */
+.offer-tab.active{
+  background:rgba(184,151,90,.14)!important;
+  border-top:2px solid var(--gold);
+  border-left:none;
+  border-right:none;
+}
+.offer-tab.active .tab-name{
+  color:var(--cream)!important;
+}
+.offer-tab.active .tab-num{
+  color:var(--gold)!important;
+}
+.offer-tab.active .tab-price{
+  color:var(--gold2)!important;
+}
+.offer-tab:not(.active){
+  background:var(--dark)!important;
+}
+.offer-tab:not(.active):hover{
+  background:rgba(184,151,90,.05)!important;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Serein</a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to main site
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="apply-hero">
+  <div class="apply-eyebrow">By application only</div>
+  <h1 class="apply-h">Let's find your gap.<br><em>And close it.</em></h1>
+  <p class="apply-sub">Every application is read personally by Medha. You will hear back within 48 hours. This is a matching conversation, not a sales call.</p>
+</div>
+
+<!-- FORM -->
+<div class="apply-body">
+
+  <!-- OFFER SELECTOR -->
+  <div class="selector-label">I am applying for <span style="color:var(--gold)">*</span></div>
+  <div class="offer-selector" id="offerSelector">
+    <div class="offer-opt selected" onclick="selectOffer(this,'gap-audit')">
+      <div class="offer-opt-num">01</div>
+      <div class="offer-opt-name">The Alignment Audit</div>
+      
+    </div>
+    <div class="offer-opt" onclick="selectOffer(this,'mentorship')">
+      <div class="offer-opt-num">02</div>
+      <div class="offer-opt-name">Private Mentorship</div>
+      
+    </div>
+    <div class="offer-opt" onclick="selectOffer(this,'collective')">
+      <div class="offer-opt-num">03</div>
+      <div class="offer-opt-name">The Collective</div>
+      
+    </div>
+  </div>
+
+  <div class="form-intro">
+    Five questions. About ten minutes to answer honestly. The more specific you are, the more useful the conversation will be for both of us.
+  </div>
+
+  <form id="applyForm" action="https://formspree.io/f/mrejgrnw" method="POST" onsubmit="submitForm(event)">
+    <input type="hidden" name="_subject" value="New Serein Application">
+    <input type="hidden" name="_replyto" id="replyToField" value="">
+    <input type="hidden" id="selectedOffer" name="offer" value="gap-audit">
+
+    <div class="field">
+      <label class="field-label">Your name <span>*</span></label>
+      <input type="text" name="name" placeholder="First and last name" required>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Your email <span>*</span></label>
+      <input type="email" name="email" placeholder="The best email to reach you" required>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Your business <span>*</span></label>
+      <span class="field-hint">What you do, who you serve, how long you have been operating.</span>
+      <textarea name="business" placeholder="Describe your business as it exists right now — what you do, who you serve, and how long you have been running." required></textarea>
+    </div>
+
+    <hr class="form-divider">
+
+    <div class="field">
+      <label class="field-label">The ceiling you keep hitting <span>*</span></label>
+      <span class="field-hint">Be specific. What stays the same no matter what you try?</span>
+      <textarea name="ceiling" placeholder="Describe the ceiling — and what you have already tried to break through it." required></textarea>
+    </div>
+
+    <div class="field">
+      <label class="field-label">The gap you sense <span>*</span></label>
+      <span class="field-hint">You don't need to name it precisely — just describe what it feels like.</span>
+      <textarea name="the_gap" placeholder="When did your business last feel completely like you? What changed after that?" required></textarea>
+    </div>
+
+    <hr class="form-divider">
+
+
+
+    <div class="field">
+      <label class="field-label">How did you find Serein?</label>
+      <select name="how_found">
+        <option value="">Select one</option>
+        <option>Instagram</option>
+        <option>LinkedIn</option>
+        <option>Referral</option>
+        <option>Google search</option>
+        <option>Podcast or speaking</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit my application →</button>
+    <p class="form-note">Your information is kept completely confidential. <strong>Medha reads every application personally</strong> and responds within 48 hours.</p>
+  </form>
+
+  <div class="success-msg" id="successMsg">
+    <div class="success-icon">✦</div>
+    <div class="success-h">Application received.</div>
+    <p class="success-body">Thank you for taking the time to answer those questions honestly. Medha will read your application and be in touch within 48 hours.</p>
+  </div>
+
+</div>
+
+<!-- REASSURANCE -->
+<div class="reassurance">
+  <div class="reassurance-inner">
+    <div class="re-card">
+      <div class="re-icon">✦</div>
+      <div class="re-title">Read personally</div>
+      <div class="re-body">Every application is read by Medha — not a team, not a filter. She responds to every one.</div>
+    </div>
+    <div class="re-card">
+      <div class="re-icon">◈</div>
+      <div class="re-title">Response within 48 hours</div>
+      <div class="re-body">You will hear back within two business days — whether the answer is yes, not yet, or a different offer entirely.</div>
+    </div>
+    <div class="re-card">
+      <div class="re-icon">◇</div>
+      <div class="re-title">No pressure</div>
+      <div class="re-body">This is a matching conversation, not a sales pitch. If it is not the right fit, you will know that clearly and kindly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSCRIBE BAR -->
+<div class="sub-bar">
+  <div class="sub-bar-inner">
+    <div>
+      <div class="sub-label-h">Stay in the Serein world.</div>
+      <div class="sub-label-s">Positioning insights, framework drops, and private invitations — direct to your inbox.</div>
+    </div>
+    <form class="sub-form" onsubmit="handleSubscribe(event)" style="display:flex;gap:.7rem;flex-shrink:0;flex-wrap:wrap">
+      <input type="email" placeholder="Your email address" required style="font-family:var(--sans);font-size:.82rem;background:rgba(245,240,232,.06);border:1px solid rgba(184,151,90,.22);color:var(--cream);padding:.85rem 1.3rem;outline:none;min-width:230px">
+      <button type="submit" style="background:var(--gold);color:var(--dark);font-family:var(--sans);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.85rem 2rem;border:none;cursor:pointer;transition:background .3s" onmouseover="this.style.background='var(--gold2)'" onmouseout="this.style.background='var(--gold)'">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="f-brand-name">Serein</div>
+      <div class="f-brand-tag">The Alignment Gap™</div>
+      <p class="f-brand-desc">Positioning and messaging for established women in business — built from the inside out.</p>
+      <div class="f-socials">
+        <a href="https://instagram.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://linkedin.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://youtube.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://tiktok.com" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Work With Me</div>
+      <div class="f-col">
+        <a href="index.html#offers">The Alignment Audit</a>
+        <a href="index.html#offers">Private Mentorship</a>
+        <a href="index.html#offers">The Serein Collective</a>
+        <a href="index.html#framework">The Alignment Gap™</a>
+        <a href="Serein-Alignment-Audit-Final.pdf" download>Free Gap Audit PDF</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Quick Links</div>
+      <div class="f-col">
+        <a href="index.html#about">About Medha</a>
+        <a href="index.html">Main Site</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2026 Serein · Medha Mathur · Singapore · Dubai · New Delhi · All rights reserved</div>
+    <div class="f-links">
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function selectOffer(el, val) {
+  document.querySelectorAll('.offer-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('selectedOffer').value = val;
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  const form = document.getElementById('applyForm');
+  const formData = new FormData(form);
+
+  // Set reply-to from email field
+  const emailVal = form.querySelector('input[type=email]').value;
+  document.getElementById('replyToField').value = emailVal;
+
+  // Disable submit button
+  const btn = form.querySelector('.submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://formspree.io/f/mrejgrnw', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Show thank you popup
+      const popup = document.getElementById('thankYouPopup');
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      // Redirect to homepage after 5 seconds
+      setTimeout(closePopupAndRedirect, 5000);
+    } else {
+      btn.textContent = 'Submit my application →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email hello@serein.co directly.');
+    }
+  })
+  .catch(() => {
+    btn.textContent = 'Submit my application →';
+    btn.disabled = false;
+    alert('Connection error. Please try again or email hello@serein.co directly.');
+  });
+}
+
+function closePopupAndRedirect() {
+  window.location.href = 'serein-website-final.html';
+}
+</script>
+
+<!-- THANK YOU POPUP -->
+<div id="thankYouPopup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,9,7,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center">
+  <div style="background:#1a1814;border:1px solid rgba(184,151,90,.25);max-width:480px;width:90%;padding:3.5rem;text-align:center;position:relative;animation:popIn .4s ease">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-style:italic;font-weight:300;color:#b8975a;margin-bottom:.5rem">✦</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#f5f0e8;line-height:1.1;margin-bottom:.8rem">Application received.</h2>
+    <p style="font-family:'DM Sans',sans-serif;font-size:.88rem;line-height:1.82;color:rgba(245,240,232,.5);font-weight:300;margin-bottom:.5rem">Thank you for taking the time to answer honestly.</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:.88rem;line-height:1.82;color:rgba(245,240,232,.5);font-weight:300;margin-bottom:2rem">Medha will read your application personally and be in touch within <strong style="color:rgba(245,240,232,.85);font-weight:400">48 hours.</strong></p>
+    <div style="width:3rem;height:1px;background:#b8975a;margin:0 auto 1.8rem"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:rgba(245,240,232,.35);margin-bottom:2rem">"The gap closes the moment you decide to find it."</p>
+    <button onclick="closePopupAndRedirect()" style="background:#b8975a;color:#0f0e0b;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:1rem 2.5rem;border:none;cursor:pointer;transition:background .3s;width:100%" onmouseover="this.style.background='#d4b87a'" onmouseout="this.style.background='#b8975a'">Return to Serein →</button>
+  </div>
+</div>
+
+<style>
+@keyframes popIn{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+</style>
+
+</body>
+</html>
